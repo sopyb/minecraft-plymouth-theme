@@ -37,10 +37,12 @@
 
             # Copy plymouth theme
             install -v -d -m 0755 $PLYMOUTH_THEME_BASEDIR
-            install -v -m 0644 ./plymouth/mc.script $PLYMOUTH_THEME_BASEDIR
-            install -v -m 0644 ./plymouth/mc.plymouth $PLYMOUTH_THEME_BASEDIR
             install -v -m 0644 ./plymouth/progress_bar.png $PLYMOUTH_THEME_BASEDIR
             install -v -m 0644 ./plymouth/progress_box.png $PLYMOUTH_THEME_BASEDIR
+
+            # Copy and set executable permissions for .plymouth and .script files
+            install -v -m 0755 ./plymouth/mc.script $PLYMOUTH_THEME_BASEDIR
+            install -v -m 0755 ./plymouth/mc.plymouth $PLYMOUTH_THEME_BASEDIR
 
             # Create smaller versions of assets
             for j in "padlock" "bar"; do
