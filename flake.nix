@@ -52,6 +52,9 @@
             for i in $(seq 1 12); do
               magick ./plymouth/dirt.png -channel R -evaluate multiply .2509803922 -channel G -evaluate multiply .2509803922 -channel B -evaluate multiply .2509803922 -interpolate Nearest -filter point -resize "$i"00% $PLYMOUTH_THEME_BASEDIR/dirt-"$i".png
             done
+
+            # Ensure all files have proper permissions
+            find $PLYMOUTH_THEME_BASEDIR -type f -exec chmod 0644 {} \;
           '';
         };
       };
